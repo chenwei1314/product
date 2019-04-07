@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cw.product.mapper.productDemo.IProductDemoMapper">
+  
+  <!-- 产品Demo基本列 -->
+  <sql id="Base_Column_List">
+     id,name,sex,phone,address,bz
+  </sql>
+  
+  <!-- 查询产品Demo列表数据 -->
+  <select id="selectList" resultType="map" parameterType="map">
+	select
+        <include refid="Base_Column_List" />
+    from product_demo  
+    where 1=1
+    <if test="name != null">
+      and name=#{name,jdbcType=VARCHAR}
+    </if>
+    <if test="sex != null">
+      and sex=#{sex,jdbcType=VARCHAR}
+    </if>
+    <if test="phone != null">
+      and phone=#{phone,jdbcType=VARCHAR}
+    </if>
+    <if test="address != null">
+      and address=#{address,jdbcType=VARCHAR}
+    </if>
+    <if test="bz != null">
+      and bz=#{bz,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+  <!--插入产品Demo数据 -->	
+  <insert id="insert" parameterType="map">
+	insert into product_demo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <!--删除产品Demo数据 -->	
+  <delete id="delete" parameterType="map">
+	     delete from product_demo where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <!--批量删除产品Demo数据 -->	
+  <delete id="deleteByBatch" parameterType="java.util.List">
+	     delete from product_demo where id in
+	     <foreach collection="list" item="ids" open="(" separator="," close=")">
+	          #{ids,jdbcType=VARCHAR}
+	     </foreach>
+  </delete>
+  
+  
+  <!-- 更新产品Demo数据-->
+  <update id="update" parameterType="map">
+    update product_demo
+    <set>
+      <if test="name != null">
+        name=#{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex=#{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone=#{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address=#{address,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        bz=#{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <!--查询产品Demo数据(根据ID) -->	
+  <select id="selectById" resultType="map" parameterType="map">
+		select
+        <include refid="Base_Column_List" />
+        from product_demo  where 1=1 
+		 <if test="id!=null">
+		     and id= #{id,jdbcType=VARCHAR}
+		 </if>
+  </select>
+  
+</mapper>

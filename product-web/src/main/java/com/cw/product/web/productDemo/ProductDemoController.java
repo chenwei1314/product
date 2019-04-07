@@ -1,4 +1,4 @@
-package com.cw.product.web.auctionDmb;
+package com.cw.product.web.productDemo;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,44 +11,44 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 import com.cw.product.framework.basecontroller.impl.BaseControllerImpl;
 import com.cw.product.framework.baseservice.IBaseService;
-import com.cw.product.service.auctionDmb.IAuctionDmbService;
+import com.cw.product.service.productDemo.IProductDemoService;
 
 
 /**
  * 
- * 系统代码表配置Controller类
+ * 产品DemoController类
  * 
  * @version 
  * <pre>
  * Author Administrator
  * Version 	1.0
- * Date  2019年04月05日
+ * Date  2019年04月07日
  * </pre>
  * @since 1.0
  */
 
 @Controller
-@RequestMapping("/AuctionDmbController")
-public class AuctionDmbController extends BaseControllerImpl {
+@RequestMapping("/ProductDemoController")
+public class ProductDemoController extends BaseControllerImpl {
 	
 	
 	@Autowired
-	private IAuctionDmbService iAuctionDmbService;
+	private IProductDemoService iProductDemoService;
 	
 	@Override
 	public IBaseService getBaseService() {
 		// TODO Auto-generated method stub
-		return iAuctionDmbService;
+		return iProductDemoService;
 	}
 	
 	/**
-	 * 跳转到系统代码表配置Index页面
+	 * 跳转到产品DemoIndex页面
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(BaseControllerImpl.URL_PAGE)
-	public ModelAndView indexAuctionDmb(HttpServletRequest request) {
-		return new ModelAndView("/auctionDmb/auctionDmb-Index");
+	public ModelAndView indexProductDemo(HttpServletRequest request) {
+		return new ModelAndView("/productDemo/productDemo-Index");
 	}
 	
 	/**
@@ -58,73 +58,73 @@ public class AuctionDmbController extends BaseControllerImpl {
 	 */
 	@RequestMapping(BaseControllerImpl.URL_SELECTlIST_BYPAGE)
 	@ResponseBody
-	public JSON selectAuctionDmbListByPage(HttpServletRequest request) {
+	public JSON selectProductDemoListByPage(HttpServletRequest request) {
 		return  this.selectListByPage(request);
 	}
 	
 	/**
-	 * 查询系统代码表配置列表(不分页)
+	 * 查询产品Demo列表(不分页)
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(BaseControllerImpl.URL_SELECTLIST)
 	@ResponseBody
-	public JSON selectAuctionDmbList(HttpServletRequest request) {
+	public JSON selectProductDemoList(HttpServletRequest request) {
 		return  this.selectList(request);
 	}
 	
 	/**
-	 * 查询系统代码表配置信息(通过Id)
+	 * 查询产品Demo信息(通过Id)
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(BaseControllerImpl.URL_SELECTBYID)
 	@ResponseBody
-	public JSON selectAuctionDmbById(HttpServletRequest request){
+	public JSON selectProductDemoById(HttpServletRequest request){
 		return  this.selectById(request);
 	}
 	
 	/**
-	 * 插入系统代码表配置信息
+	 * 插入产品Demo信息
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(BaseControllerImpl.URL_INSERT)
 	@ResponseBody
-	public JSON insertAuctionDmb(HttpServletRequest request) {
+	public JSON insertProductDemo(HttpServletRequest request) {
 		return  this.insert(request);
 	}
 	
 	/**
-	 * 删除系统代码表配置信息
+	 * 删除产品Demo信息
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(BaseControllerImpl.URL_DELETE)
 	@ResponseBody
-	public JSON deleteAuctionDmb(HttpServletRequest request) {
+	public JSON deleteProductDemo(HttpServletRequest request) {
 		return this.delete(request);
 	}
 	
 	/**
-	 * 删除系统代码表配置信息(批量)
+	 * 删除产品Demo信息(批量)
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(BaseControllerImpl.URL_DELETE_BYBATCH)
 	@ResponseBody
-	public JSON deleteAuctionDmbByBatch(HttpServletRequest request) {
+	public JSON deleteProductDemoByBatch(HttpServletRequest request) {
 		return this.deleteByBatch(request);
 	}
 	
 	/**
-	 * 更新系统代码表配置信息
+	 * 更新产品Demo信息
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(BaseControllerImpl.URL_UPDATE)
 	@ResponseBody
-	public JSON updateAuctionDmb(HttpServletRequest request) {
+	public JSON updateProductDemo(HttpServletRequest request) {
 		return this.update(request);
 	}
 

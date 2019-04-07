@@ -26,7 +26,7 @@ public class InitParameterListener implements ApplicationListener<ContextRefresh
 			/**
 			 * 暂不启动自动升级脚本
 			 */
-			//checkAndUpgradeDatabase();
+			checkAndUpgradeDatabase();
 		}
 		
 		
