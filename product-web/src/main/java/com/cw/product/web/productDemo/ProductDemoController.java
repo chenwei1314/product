@@ -48,7 +48,7 @@ public class ProductDemoController extends BaseControllerImpl {
 	 */
 	@RequestMapping(BaseControllerImpl.URL_PAGE)
 	public ModelAndView indexProductDemo(HttpServletRequest request) {
-		return new ModelAndView("/productDemo/productDemo-Index");
+		return new ModelAndView("/test");
 	}
 	
 	/**
